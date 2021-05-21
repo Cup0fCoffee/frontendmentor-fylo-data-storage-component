@@ -1,0 +1,205 @@
+:root {
+    font-size: 14px;
+    font-family: Raleway, sans-serif;
+
+    --clr-data-storage-bar: linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    --clr-data-storage-bg: hsl(228, 56%, 26%);
+    --clr-data-storage-bg-secondary: hsl(229, 57%, 11%);
+    --clr-primary: hsl(243, 100%, 93%);
+    --clr-secondary: hsl(229, 7%, 55%);
+    --clr-accent: hsl(229, 57%, 11%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background: url(./images/bg-mobile.png) no-repeat center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-storage {
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.data-storage__header {
+    background: var(--clr-data-storage-bg);
+    padding: 3rem;
+    border-radius: 0.7rem 7rem 0.7rem 0.7rem;
+}
+
+.data-storage__header-title {
+  margin-bottom: 2rem;
+}
+
+.data-storage__header-controls {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.data-storage__header-control {
+    display: block;
+    background: var(--clr-data-storage-bg-secondary);
+    width: 3.5rem;
+    height: 3.5rem;
+    position: relative;
+    border-radius: 0.7rem;
+}
+
+.data-storage__header-control > img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%, -50%);
+}
+
+.data-storage__storage-status {
+    background: var(--clr-data-storage-bg);
+    border-radius: 0.7rem;
+    padding: 2rem;
+    padding-bottom: 3.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.data-storage__storage-status-text {
+	color: var(--clr-primary);
+	text-align: center;
+    margin-bottom: 1rem;
+}
+
+.data-storage__storage-bar-container {
+}
+
+.data-storage__storage-bar {
+    --height: 1.4rem;
+    --padding: 0.2rem;
+	width: 100%;
+	height: var(--height);
+    padding: var(--padding);
+	background: var(--clr-data-storage-bg-secondary);
+	border-radius: 1rem;
+    margin-bottom: 0.7rem;
+}
+
+.data-storage__storage-bar-inner {
+	width: 81.5%;
+	height: calc(var(--height) - var(--padding) * 2);
+	background: var(--clr-data-storage-bar);
+	border-radius: 1rem;
+    padding: calc(var(--padding) * 0.75);
+    position: relative;
+}
+
+.data-storage__storage-bar-inner-inner {
+	width: calc(var(--height) - var(--padding) * 3.5);
+	height: calc(var(--height) - var(--padding) * 3.5);
+    background: var(--clr-primary);
+    border-radius: 1rem;
+    position: absolute;
+    right: var(--padding);
+}
+
+.data-storage__storage-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  color: var(--clr-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.data-storage__storage-left {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 25%);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: #fff;
+    padding: 0.7rem 1.8rem;
+    border-radius: 0.7rem;
+}
+
+.data-storage__storage-left > strong {
+    font-size: 3rem;
+    color: var(--clr-accent);
+}
+
+.data-storage__storage-left > span {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--clr-secondary);
+    white-space: nowrap;
+}
+
+@media (min-width: 960px) {
+    .container {
+        background:
+            url(images/bg-desktop.png) no-repeat bottom,
+            var(--clr-accent);
+        background-size: 100% 50%;
+    }
+
+    .data-storage {
+        flex-direction: row;
+        width: 64%;
+        gap: 2rem;
+    }
+
+    .data-storage__header {
+        flex-grow: 1;
+    }
+
+    .data-storage__storage-status {
+        margin-bottom: 0;
+        align-self: end;
+        padding: 3rem;
+        flex-grow: 3;
+    }
+
+    .data-storage__storage-status-text {
+        text-align: left;
+    }
+
+    .data-storage__storage-left {
+        transform: unset;
+        left: unset;
+        top: -3rem;
+        right: 3rem;
+    }
+
+    .data-storage__storage-left::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -1.5rem;
+        border-top: 3rem solid #fff;
+        border-left: 3rem solid transparent;
+    }
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
